@@ -1,0 +1,27 @@
+{
+  "id": "flight-map",
+  "name": "Flight Map",
+  "version": "1.0.0",
+  "apiVersion": 1,
+  "author": "libery",
+  "description": "A personal world map of flights, airports and flight statistics.",
+  "license": "MIT",
+  "homepage": "https://github.com/Thewhitelight/trek-plugin-flight-map",
+  "tags": ["flights", "map", "statistics"],
+  "icon": "Map",
+  "type": "page",
+  "trek": ">=4.0.0 <5.0.0",
+  "nativeModules": false,
+  "permissions": ["db:own", "db:read:trips", "http:outbound", "http:outbound:tile.openstreetmap.org", "http:outbound:airlabs.co"],
+  "egress": ["tile.openstreetmap.org", "airlabs.co"],
+  "settings": [
+    { "key": "airlabs_api_key", "label": "AirLabs API key", "input_type": "password", "scope": "instance", "required": false, "secret": true, "hint": "Optional. Used only when you click Enrich aircraft models; historical flights may not be available." }
+  ],
+  "routes": [
+    { "method": "GET", "path": "/flights", "auth": true },
+    { "method": "POST", "path": "/manual", "auth": true },
+    { "method": "DELETE", "path": "/manual", "auth": true },
+    { "method": "GET", "path": "/tile", "auth": true },
+    { "method": "GET", "path": "/aircraft", "auth": true }
+  ]
+}

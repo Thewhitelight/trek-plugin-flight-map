@@ -1,0 +1,13 @@
+{
+  "name": "flight-map",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node test/flight-data.test.js && node test/arc.test.js && node test/server.test.js",
+    "validate": "npx -y trek-plugin-sdk validate ."
+  },
+  "devDependencies": {
+    "leaflet": "^1.9.4",
+    "trek-plugin-sdk": "^1.5.0"
+  }
+}
